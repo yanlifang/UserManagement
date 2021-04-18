@@ -1,0 +1,22 @@
+{
+  "name": "usermanagement",
+  "version": "1.0.0",
+  "description": "User Management For CS467",
+  "main": "user.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanlifang/UserManagement.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanlifang/UserManagement/issues"
+  },
+  "homepage": "https://github.com/yanlifang/UserManagement#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
