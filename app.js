@@ -6,8 +6,9 @@ var session = require('express-session');
 var publicRouter = require('./routes/public');
 
 app.get('/', (req, res) =>{
-    res.sendFile(__dirname+"/views/homepage.html");
+    res.sendFile(__dirname+"/views/login.html");
 });
+
 
 app.use('/', publicRouter);
 

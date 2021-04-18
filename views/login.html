@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>Home Page For Login And Regsitration</head>
+    <body>
+        <br>
+
+        <div class="collapse navbar-collapse" id="navBar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a href="" class="nav-link route-link">Home</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav d-none d-md-block">
+              <!-- Login button: show if NOT authenticated -->
+              <li class="nav-item auth-invisible">
+                <button
+                  id="qsLoginBtn"
+                  onclick="login()"
+                  class="btn btn-primary btn-margin auth-invisible hidden"
+                >
+                  Log in with Google
+                </button>
+              </li>
+            </ul>
+              
+            <ul>
+                <li class="nav-item auth-invisible">
+                    <button
+                    id="fbBtn"
+                    onclick="login()"
+                    class="btn btn-primary btn-margin auth-invisible hidden"
+                  >
+                    Log in with Facebook
+                  </button>
+            
+                  </li>
+            </ul>
+              
+            <ul>
+                <li class="nav-item auth-invisible">
+                    <button
+                    id="twitterBtn"
+                    onclick="login()"
+                    class="btn btn-primary btn-margin auth-invisible hidden"
+                  >
+                    Log in with Twitter
+                  </button>
+                </li>
+            </ul>
+              
+            <ul>
+              <li class="nav-item auth-invisible">
+                <button
+                id="instagramBtn"
+                onclick="login()"
+                class="btn btn-primary btn-margin auth-invisible hidden"
+              >
+                Log in with Instagram
+              </button>
+        
+              </li>
+            </ul>
+    </body>
+</html>
