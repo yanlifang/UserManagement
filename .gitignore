@@ -3,6 +3,7 @@
 
 /build
 
+/google_signin_buttons
 
 #environment
 .environment

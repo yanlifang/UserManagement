@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) =>{
-    res.render("./views/homepage.html");
+    res.render("./views/login.html");
 })
 
 
