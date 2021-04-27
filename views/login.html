@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
-    <head>Home Page For Login And Regsitration</head>
+<html lang="en">
+    <head>
+      <title>Wasm Fiddle</title>
+    </head>
     <body>
-        <br>
-
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
@@ -18,22 +18,26 @@
                   onclick="login()"
                   class="btn btn-primary btn-margin auth-invisible hidden"
                 >
-                  Log in with Google
+                <a href="http://localhost:3000/google">Log in with Google
+                </a>
+                  
                 </button>
               </li>
             </ul>
               
             <ul>
                 <li class="nav-item auth-invisible">
-                    <button
-                    id="fbBtn"
-                    onclick="login()"
-                    class="btn btn-primary btn-margin auth-invisible hidden"
-                  >
-                    Log in with Facebook
-                  </button>
+                <button
+                  id="fbBtn"
+                  onclick="login()"
+                  class="btn btn-primary btn-margin auth-invisible hidden"
+                >
+                <a href="http://localhost:3000/auth/facebook/callback">
+                  Log in with Facebook
+                </a>
+                </button>
             
-                  </li>
+                </li>
             </ul>
               
             <ul>
@@ -59,6 +63,6 @@
               </button>
         
               </li>
-            </ul>
+            </ul>            
     </body>
 </html>
