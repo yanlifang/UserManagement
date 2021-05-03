@@ -6,6 +6,7 @@ const config = require('./config');
 var router = express();
 require('./fb.passport.js');
 require('./google.passport.js');
+require('./twitter.passport');
 
 app.set('view engine', 'ejs');
 
@@ -138,6 +139,19 @@ app.get('/auth/facebook',
  
 app.get('/auth/facebook/callback', 
   passport.authenticate('facebook', { 
+      failureRedirect: '/fail' }),
+  function(req, res) {
+    //req.session.destroy();
+    // Successful authentication, redirect success.
+    res.redirect('/success');
+});
+
+
+app.get('/auth/twitter', 
+  passport.authenticate('twitter', { scope : ['profile', 'email'] }));
+ 
+app.get('/auth/twitter/callback', 
+  passport.authenticate('twitter', { 
       failureRedirect: '/fail' }),
   function(req, res) {
     //req.session.destroy();
