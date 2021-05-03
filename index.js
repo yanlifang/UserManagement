@@ -1,3 +1,4 @@
+//reference for deploy https://us-east-2.console.aws.amazon.com/codesuite/codedeploy/applications?region=us-east-2
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -6,7 +7,7 @@ const config = require('./config');
 var router = express();
 require('./fb.passport.js');
 require('./google.passport.js');
-require('./twitter.passport');
+//require('./twitter.passport');
 
 app.set('view engine', 'ejs');
 
@@ -147,7 +148,7 @@ app.get('/auth/facebook/callback',
 });
 
 
-app.get('/auth/twitter', 
+/*app.get('/auth/twitter', 
   passport.authenticate('twitter', { scope : ['profile', 'email'] }));
  
 app.get('/auth/twitter/callback', 
@@ -158,3 +159,16 @@ app.get('/auth/twitter/callback',
     // Successful authentication, redirect success.
     res.redirect('/success');
 });
+
+
+app.get('/auth/linkedin', 
+  passport.authenticate('linkedin', { scope : ['profile', 'email'] }));
+ 
+app.get('/auth/linkedin/callback', 
+  passport.authenticate('linkedin', { 
+      failureRedirect: '/fail' }),
+  function(req, res) {
+    //req.session.destroy();
+    // Successful authentication, redirect success.
+    res.redirect('/success');
+});*/

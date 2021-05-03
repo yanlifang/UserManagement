@@ -17,5 +17,11 @@ module.exports = {
         'clientSecret': "oGRWsyZMjy0ikSUvrSqfWs4EH3S0gXNgINfspQaB0DqufZvqDP",
         'callbackURL': "http://localhost:3000/auth/twitter/callback",
         proxy: true
+    },
+
+    'linkedinAuth':{
+        'clientID': "",
+        'clientSecret': "",
+        'callbackURL': "http://localhost:3000/auth/linkedin/callback",
     }
 }
