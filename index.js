@@ -30,6 +30,13 @@ var passport = require('passport');
  
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.get('/logout', (req, res) =>{
+    req.logout();
+    req.session.destroy();
+    res.redirect('/');
+});
+
  
 
 app.get('/success', (req, res) => {
@@ -37,33 +44,8 @@ app.get('/success', (req, res) => {
   //res.render('pages/success', {user: userProfile});
 
 });
-//app.get('/error', (req, res) => res.send("error logging in"));
- 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
- 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
 
-//app.use('/', route);
-//app.use(json());
-/*  Google AUTH  */
- 
-//var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-/*var GoogleStrategy = require('passport-google-oauth2').Strategy;
-
-passport.use(new GoogleStrategy({
-    clientID: config.googleAuth.clientID,
-    clientSecret:config.googleAuth.clientSecret,
-    callbackURL: config.googleAuth.callbackURL
-  },
-  function(accessToken, refreshToken, profile, done) {
-      userProfile=profile;
-      return done(null, userProfile);
-  }
-));*/
+app.get('/fail', (req, res) => res.send("error logging in"));
  
 
 app.get('/google', 
@@ -74,15 +56,7 @@ app.get('/google/callback',
   function(req, res) {
     // Successful authentication, redirect success.
     res.redirect('/success');
-  });
-
-
-app.get('/logout', (req, res) =>{
-    req.logout();
-    req.session.destroy();
-    res.redirect('/');
 });
-
 
 
 
@@ -93,44 +67,12 @@ router.use(session({
   saveUninitialized: true,
   secret: 'SECRET' 
 }));
-
-
-
-router.get('/', function(req, res) {
-  res.render('pages/auth');
-});
-
-
-var passport = require('passport');
-var userProfile;
-
-router.use(passport.initialize());
-router.use(passport.session());
-
-router.get('/', function (req, res) {
-  res.render('pages/auth'); // load the index.ejs file
-});*/
-
-
-/*var FacebookStrategy = require('passport-facebook').Strategy;
-passport.use(
-    new FacebookStrategy(
-      {
-          clientID: config.facebookAuth.clientID,
-          clientSecret: config.facebookAuth.clientSecret,
-          callbackURL: config.facebookAuth.callbackURL
-      }, function(accessToken, refreshToken, profile, done){
-          return done(null, profile);
-      }
-    ));*/
   
-
-
 /*app.get('/login', (req, res) => {
     res.send(`Welcome ${req.user.displayName}!`);
   });*/
   
-app.get('/fail', (req, res) => res.send("error logging in"));
+
 
 
 app.get('/auth/facebook', 
@@ -142,7 +84,7 @@ app.get('/auth/facebook/callback',
   function(req, res) {
     //req.session.destroy();
     // Successful authentication, redirect success.
-    res.redirect('/success');
+    res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
 
 
@@ -156,7 +98,7 @@ app.get('/auth/twitter/callback',
   function(req, res) {
     //req.session.destroy();
     // Successful authentication, redirect success.
-    res.redirect('/');
+    res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
 
 
@@ -169,6 +111,6 @@ app.get('/auth/linkedin/callback',
   function(req, res) {
     //req.session.destroy();
     // Successful authentication, redirect success.
-    res.redirect('/success');
+    res.redirect('/');
 });
 
