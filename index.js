@@ -7,7 +7,7 @@ const config = require('./config');
 var router = express();
 require('./fb.passport.js');
 require('./google.passport.js');
-//require('./twitter.passport');
+require('./twitter.passport');
 
 app.set('view engine', 'ejs');
 
@@ -16,7 +16,6 @@ app.use(session({
   saveUninitialized: true,
   secret: 'SECRET' 
 }));
-
 
 
 app.get('/', function(req, res) {
@@ -28,7 +27,6 @@ app.listen(port , () => console.log('App listening on port ' + port));
 
 
 var passport = require('passport');
-var userProfile;
  
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,7 +37,7 @@ app.get('/success', (req, res) => {
   //res.render('pages/success', {user: userProfile});
 
 });
-app.get('/error', (req, res) => res.send("error logging in"));
+//app.get('/error', (req, res) => res.send("error logging in"));
  
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -72,7 +70,7 @@ app.get('/google',
   passport.authenticate('google', { scope : ['profile', 'email'] }));
  
 app.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/error' }),
+  passport.authenticate('google', { failureRedirect: '/fail' }),
   function(req, res) {
     // Successful authentication, redirect success.
     res.redirect('/success');
@@ -128,9 +126,9 @@ passport.use(
   
 
 
-app.get('/login', (req, res) => {
+/*app.get('/login', (req, res) => {
     res.send(`Welcome ${req.user.displayName}!`);
-  });
+  });*/
   
 app.get('/fail', (req, res) => res.send("error logging in"));
 
@@ -148,7 +146,8 @@ app.get('/auth/facebook/callback',
 });
 
 
-/*app.get('/auth/twitter', 
+
+app.get('/auth/twitter', 
   passport.authenticate('twitter', { scope : ['profile', 'email'] }));
  
 app.get('/auth/twitter/callback', 
@@ -157,7 +156,7 @@ app.get('/auth/twitter/callback',
   function(req, res) {
     //req.session.destroy();
     // Successful authentication, redirect success.
-    res.redirect('/success');
+    res.redirect('/');
 });
 
 
@@ -171,4 +170,5 @@ app.get('/auth/linkedin/callback',
     //req.session.destroy();
     // Successful authentication, redirect success.
     res.redirect('/success');
-});*/
+});
+

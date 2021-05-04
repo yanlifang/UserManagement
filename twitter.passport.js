@@ -1,5 +1,5 @@
 var passport = require('passport');
-var LoginWithTwitter = require('login-with-twitter');
+var TwitterStrategy = require('passport-twitter').Strategy;
 const config = require('./config');
 
 
@@ -12,7 +12,7 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use(
-  new LoginWithTwitter(
+  new TwitterStrategy(
     {
         consumerKey: config.twitterAuth.clientID,
         consumerSecret: config.twitterAuth.clientSecret,
