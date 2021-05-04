@@ -5,9 +5,9 @@ const session = require('express-session');
 const config = require('./config');
 //var router = express.Router();
 var router = express();
-require('./fb.passport.js');
-require('./google.passport.js');
-require('./twitter.passport');
+require('./passport/fb.passport.js');
+require('./passport/google.passport.js');
+require('./passport/twitter.passport');
 
 app.set('view engine', 'ejs');
 

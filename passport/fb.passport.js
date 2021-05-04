@@ -1,6 +1,6 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
-const config = require('./config');
+const config = require('../config');
 
 
 passport.serializeUser(function(user, done) {
