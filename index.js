@@ -3,8 +3,7 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const config = require('./config');
-//var router = express.Router();
-var router = express();
+
 require('./passport/fb.passport.js');
 require('./passport/google.passport.js');
 require('./passport/twitter.passport');
@@ -39,7 +38,7 @@ app.get('/logout', (req, res) =>{
 
  
 
-app.get('/success', (req, res) => {
+app.get('/login', (req, res) => {
     res.send(`Welcome ${req.user.displayName}!`);
   //res.render('pages/success', {user: userProfile});
 
@@ -48,6 +47,7 @@ app.get('/success', (req, res) => {
 app.get('/fail', (req, res) => res.send("error logging in"));
  
 
+//google
 app.get('/google', 
   passport.authenticate('google', { scope : ['profile', 'email'] }));
  
@@ -59,22 +59,7 @@ app.get('/google/callback',
 });
 
 
-
-/*router.set('view engine', 'ejs');
-
-router.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: 'SECRET' 
-}));
-  
-/*app.get('/login', (req, res) => {
-    res.send(`Welcome ${req.user.displayName}!`);
-  });*/
-  
-
-
-
+//facebook 
 app.get('/auth/facebook', 
   passport.authenticate('facebook', { scope : ['profile', 'email'] }));
  
@@ -88,7 +73,7 @@ app.get('/auth/facebook/callback',
 });
 
 
-
+//twitter 
 app.get('/auth/twitter', 
   passport.authenticate('twitter', { scope : ['profile', 'email'] }));
  
@@ -101,16 +86,21 @@ app.get('/auth/twitter/callback',
     res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
 
-
 app.get('/auth/linkedin', 
   passport.authenticate('linkedin', { scope : ['profile', 'email'] }));
  
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { 
-      failureRedirect: '/fail' }),
+      failureRedirect: '/login' }),
   function(req, res) {
     //req.session.destroy();
     // Successful authentication, redirect success.
     res.redirect('/');
 });
 
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  req.redirect('/');
+}

@@ -22,8 +22,6 @@ passport.use(new GoogleStrategy({
     callbackURL: config.googleAuth.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-        //user.findOrCreate({ googleId: profile.id }, function (err, user) {
-         //return done(err, user);
          userProfile = profile;
          return done(null, profile);
   }

@@ -13,3 +13,5 @@ After you login, users can be redirected to http://localhost:3000/success page.
 
 You have to logout through google or facebook or twitter at this point. 
 
+This application has been deployed to aws Elastic Beanstalk services. 
+http://nodeuser-env.eba-uiffhh25.us-east-2.elasticbeanstalk.com/

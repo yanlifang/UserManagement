@@ -1,5 +1,5 @@
 var passport = require('passport');
-var LoginWithTwitter = require('login-with-twitter');
+var LinkedInStrategy = require('passport-linkedin-oauth2');
 const config = require('../config');
 
 
@@ -12,12 +12,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use(
-  new LoginWithTwitter(
+  new LinkedInStrategy(
     {
-        consumerKey: config.twitterAuth.clientID,
-        consumerSecret: config.twitterAuth.clientSecret,
-        callbackURL: config.twitterAuth.callbackURL
-    }, function(accessToken, refreshToken, profile, done){
+        consumerKey: config.linkedinAuth.clientID,
+        consumerSecret: config.linkedinAuth.clientSecret,
+        callbackURL: config.linkedinAuth.callbackURL
+    }, function(token, tokenSecret, profile, done){
         return done(null, profile);
     }
   ));
