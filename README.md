@@ -9,7 +9,7 @@ http://localhost:3000 can check the interface
 
 You can login either through facebook or google or twitter.
 
-After you login, users can be redirected to http://localhost:3000/success page.
+After you login, users can be redirected to http://localhost:3000 page.
 
 You have to logout through google or facebook or twitter at this point. 
 
