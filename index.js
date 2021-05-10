@@ -105,7 +105,7 @@ app.get('/auth/linkedin',
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { 
       failureRedirect: '/fail',
-      successRedirect: '/logout'
+      successRedirect: '/'
 }));
 
 function isLoggedIn(req, res, next){
