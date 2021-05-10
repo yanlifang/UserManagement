@@ -1,5 +1,5 @@
 var passport = require('passport');
-var LinkedInStrategy = require('passport-linkedin-oauth2');
+const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const config = require('../config');
 
 
@@ -14,11 +14,13 @@ passport.deserializeUser(function(obj, done) {
 passport.use(
   new LinkedInStrategy(
     {
-        consumerKey: config.linkedinAuth.clientID,
-        consumerSecret: config.linkedinAuth.clientSecret,
-        callbackURL: config.linkedinAuth.callbackURL
+        clientID: config.linkedinAuth.clientID,
+        clientSecret: config.linkedinAuth.clientSecret,
+        callbackURL: config.linkedinAuth.callbackURL,
+        scope: ['r_emailaddress', 'r_liteprofile'],
     }, function(token, tokenSecret, profile, done){
         return done(null, profile);
     }
   ));
 
+ 
