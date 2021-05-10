@@ -37,9 +37,10 @@ var passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/logout', (req, res)=>{
-    req.logout();
-    req.session.destroy();
+app.post('/logout', (req, res)=>{
+    res.send('Logout successfully');
+    //req.logout();
+    //req.session.destroy();
     res.redirect('/');
 });
 
@@ -51,7 +52,9 @@ app.get('/logout', (req, res)=>{
 
 });*/
 
-app.get('/fail', (req, res) => res.send("error logging in"));
+app.get('/fail', (req, res) =>{
+  res.send("Incorrect email or password!");
+});
  
 
 //google
@@ -61,7 +64,7 @@ app.get('/google',
 app.get('/google/callback', 
   passport.authenticate('google', 
   { 
-    failureRedirect: '/login',
+    failureRedirect: '/fail',
     successRedirect: '/'}));
   /*function(req, res) {
     // Successful authentication, redirect success.
@@ -89,7 +92,7 @@ app.get('/auth/twitter',
  
 app.get('/auth/twitter/callback', 
   passport.authenticate('twitter', { 
-      failureRedirect: '/login' }),
+      failureRedirect: '/fail' }),
   function(req, res) {
     //req.session.destroy();
     // Successful authentication, redirect success.
