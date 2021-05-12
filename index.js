@@ -17,45 +17,28 @@ app.use(session({
   secret: 'SECRET' 
 }));
 
-
-app.get('/', function(req, res) {
-  res.render('pages/auth');
-});
-
-app.get('/profile', isLoggedIn, function(req, res){
-  res.render('pages/profile',{
-    user: req.user
-  });
-});
-
-const port = process.env.PORT || 3000;
-app.listen(port , () => console.log('App listening on port ' + port));
-
-
 var passport = require('passport');
  
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.post('/logout', (req, res)=>{
-    res.send('Logout successfully');
-    //req.logout();
-    //req.session.destroy();
-    res.redirect('/');
+app.get('/', function(req, res) {
+  res.render('pages/auth');
 });
 
+
+const port = process.env.PORT || 3000;
+app.listen(port , () => console.log('App listening on port ' + port));
  
 
-/*app.get('/login', (req, res) => {
+app.get('/profile', (req, res) => {
     res.send(`Welcome ${req.user.displayName}!`);
-  //res.render('pages/success', {user: userProfile});
 
-});*/
+});
 
 app.get('/fail', (req, res) =>{
   res.send("Incorrect email or password!");
 });
- 
 
 //google
 app.get('/google', 
@@ -64,12 +47,14 @@ app.get('/google',
 app.get('/google/callback', 
   passport.authenticate('google', 
   { 
-    failureRedirect: '/fail',
-    successRedirect: '/'}));
-  /*function(req, res) {
+    failureRedirect: '/fail', }),
+    //successRedirect: '/profile'}));
+    function(req, res) {
     // Successful authentication, redirect success.
-    res.redirect('/profile');*/
-//});
+      console.log('Login successfully');
+      res.redirect('/');
+    }
+);
 
 
 //facebook 
@@ -80,7 +65,6 @@ app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { 
       failureRedirect: '/fail' }),
   function(req, res) {
-    //req.session.destroy();
     // Successful authentication, redirect success.
     res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
@@ -94,7 +78,6 @@ app.get('/auth/twitter/callback',
   passport.authenticate('twitter', { 
       failureRedirect: '/fail' }),
   function(req, res) {
-    //req.session.destroy();
     // Successful authentication, redirect success.
     res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
@@ -105,12 +88,31 @@ app.get('/auth/linkedin',
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { 
       failureRedirect: '/fail',
-      successRedirect: '/'
+      successRedirect: '/profile'
 }));
 
-function isLoggedIn(req, res, next){
-  if(req.isAuthenticated()){
-    return next();
-  }
-  res.redirect('/');
-}
+
+
+app.get('/googlelogout', (req, res)=>{
+  req.logout();
+  req.session.destroy();
+  res.redirect('https://accounts.google.com/logout');
+});
+
+app.get('/fblogout', (req, res)=>{
+req.logout();
+req.session.destroy();
+res.redirect('https://facebook.com/logout');
+});
+
+app.get('/linkedinlogout', (req, res)=>{
+req.logout();
+req.session.destroy();
+res.redirect('https://www.linkedin.com/logout');
+});
+
+app.get('/twitterlogout', (req, res)=>{
+req.logout();
+req.session.destroy();
+res.redirect('https://twitter.com/logout');
+});

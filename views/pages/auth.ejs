@@ -9,12 +9,6 @@
     
 </head>
 <body>
-    
-    <nav class="light-blue lighten-1" role="navigation" style="text-align: right;">
-        <div class="nav-wrapper container">
-          <a href="/logout" class="right">Logout</a>
-        </div>
-      </nav>
     <br />
     <div>
         <h1 style="text-align: center;">Wasm Fiddle User Management </h1>
@@ -30,5 +24,16 @@
         <a href="http://localhost:3000/auth/twitter/callback" class="btn btn-twitter"><span class="fa fa-twitter"></span> SignIn with Twitter</a>
     </div>
 </div>
+
+<nav class="container" role="navigation" style="text-align: right;">
+    <div class="jumbotron text-center text-primary">
+    <h2>Logout</h2>
+      <a href="/googlelogout" class="fa fa-google" style="padding-right: 10px;"></a>
+      <a href="/fblogout" class="fa fa-facebook" style="padding-right: 10px;"></a>
+      <a href="/linkedinlogout" class="fa fa-linkedin" style="padding-right: 10px;"></a>
+      <a href="/twitterlogout" class="fa fa-twitter" style="padding-right: 10px;"></a>
+    </div>
+    <dvi><h6>Note: Logout will logout your social account from all associated devices.</h6></dvi>
+</nav>
 </body>
 </html> 
