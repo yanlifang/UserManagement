@@ -23,5 +23,5 @@ module.exports = {
         'clientID': "86d7v7g6asfqx8",
         'clientSecret': "xrTOZ1WsGLYrA0Wn",
         'callbackURL': "http://localhost:3000/auth/linkedin/callback",
-    }
+    },
 }

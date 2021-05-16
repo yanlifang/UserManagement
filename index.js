@@ -50,9 +50,7 @@ app.get('/google/callback',
     failureRedirect: '/fail', }),
     //successRedirect: '/profile'}));
     function(req, res) {
-    // Successful authentication, redirect success.
-      console.log('Login successfully');
-      res.redirect('/');
+      res.redirect('/https://naughty-hoover-9fe66f.netlify.app');
     }
 );
 
@@ -88,7 +86,7 @@ app.get('/auth/linkedin',
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { 
       failureRedirect: '/fail',
-      successRedirect: '/profile'
+      successRedirect: '/https://naughty-hoover-9fe66f.netlify.app'
 }));
 
 
