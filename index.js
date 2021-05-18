@@ -50,7 +50,7 @@ app.get('/google/callback',
     failureRedirect: '/fail', }),
     //successRedirect: '/profile'}));
     function(req, res) {
-      res.redirect('/https://naughty-hoover-9fe66f.netlify.app');
+      res.redirect('https://naughty-hoover-9fe66f.netlify.app');
     }
 );
 
@@ -86,7 +86,7 @@ app.get('/auth/linkedin',
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { 
       failureRedirect: '/fail',
-      successRedirect: '/https://naughty-hoover-9fe66f.netlify.app'
+      successRedirect: 'https://naughty-hoover-9fe66f.netlify.app'
 }));
 
 
