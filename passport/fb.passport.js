@@ -16,7 +16,8 @@ passport.use(
     {
         clientID: config.facebookAuth.clientID,
         clientSecret: config.facebookAuth.clientSecret,
-        callbackURL: config.facebookAuth.callbackURL
+        callbackURL: config.facebookAuth.callbackURL,
+        proxy: true
     }, function(accessToken, refreshToken, profile, done){
         return done(null, profile);
     }

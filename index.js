@@ -1,13 +1,36 @@
 //reference for deploy https://us-east-2.console.aws.amazon.com/codesuite/codedeploy/applications?region=us-east-2
+//reference for https server https://nodejs.org/en/knowledge/HTTP/servers/how-to-create-a-HTTPS-server/
 const express = require('express');
-const app = express();
+const fs = require('fs');
 const session = require('express-session');
 const config = require('./config');
-
+const app = express();
 require('./passport/fb.passport.js');
 require('./passport/google.passport');
 require('./passport/twitter.passport');
 require('./passport/linkedin.passport');
+
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+
+var https = require('https');
+var server = https.createServer(options, app);
+const port = process.env.PORT || 3000;
+server.listen(port, function(){
+  console.log("Server running at https://localhost:" + port);
+});
+
+
+//
+
+
+/*https.createServer(options, function(req, res){
+  res.writeHead(200);
+  res.end('Hello world!');
+}).listen(8000);*/
+
 
 app.set('view engine', 'ejs');
 
@@ -27,8 +50,8 @@ app.get('/', function(req, res) {
 });
 
 
-const port = process.env.PORT || 3000;
-app.listen(port , () => console.log('App listening on port ' + port));
+
+//app.listen(port , () => console.log('App listening on port ' + port));
  
 
 app.get('/profile', (req, res) => {
@@ -40,6 +63,9 @@ app.get('/fail', (req, res) =>{
   res.send("Incorrect email or password!");
 });
 
+app.enable("trust proxy");
+
+
 //google
 app.get('/google', 
   passport.authenticate('google', { scope : ['profile', 'email'] }));
@@ -50,7 +76,7 @@ app.get('/google/callback',
     failureRedirect: '/fail', }),
     //successRedirect: '/profile'}));
     function(req, res) {
-      res.redirect('/https://naughty-hoover-9fe66f.netlify.app');
+      res.redirect('https://naughty-hoover-9fe66f.netlify.app');
     }
 );
 
@@ -86,7 +112,7 @@ app.get('/auth/linkedin',
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { 
       failureRedirect: '/fail',
-      successRedirect: '/https://naughty-hoover-9fe66f.netlify.app'
+      successRedirect: 'https://naughty-hoover-9fe66f.netlify.app'
 }));
 
 
