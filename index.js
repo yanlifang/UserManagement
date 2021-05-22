@@ -22,16 +22,6 @@ server.listen(port, function(){
   console.log("Server running at https://localhost:" + port);
 });
 
-
-//
-
-
-/*https.createServer(options, function(req, res){
-  res.writeHead(200);
-  res.end('Hello world!');
-}).listen(8000);*/
-
-
 app.set('view engine', 'ejs');
 
 app.use(session({
