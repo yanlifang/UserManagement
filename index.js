@@ -74,10 +74,10 @@ app.get('/google/callback',
 
 
 //facebook 
-app.get('/facebook', 
+app.get('/auth/facebook', 
   passport.authenticate('facebook', { scope : ['profile', 'email'] }));
  
-app.get('/facebook/callback', 
+app.get('/auth/facebook/callback', 
   passport.authenticate('facebook', { 
       failureRedirect: '/fail' }),
   function(req, res) {
