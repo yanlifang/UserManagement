@@ -1,4 +1,5 @@
-//reference for deploy https://us-east-2.console.aws.amazon.com/codesuite/codedeploy/applications?region=us-east-2
+//reference for deploy https://www.youtube.com/watch?v=b0g-FJ5Zbb8
+//reference for deploy and configure https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.html#cnames-and-https-getting-certificates
 //reference for https server https://nodejs.org/en/knowledge/HTTP/servers/how-to-create-a-HTTPS-server/
 const express = require('express');
 const fs = require('fs');
