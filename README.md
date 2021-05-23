@@ -22,4 +22,6 @@ After you login, users can be redirected to our project homepage.
 There is option to logout social media account. 
 
 This application has been deployed to aws Elastic Beanstalk services. 
-http://nodeuser-env.eba-uiffhh25.us-east-2.elasticbeanstalk.com/
+http://httpuser-env.eba-uqchs28j.us-east-2.elasticbeanstalk.com/
+
+Deploy to Heroku: https://git.heroku.com/test-usermanagement.git

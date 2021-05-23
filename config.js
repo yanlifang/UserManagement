@@ -13,8 +13,8 @@ module.exports = {
     },
 
     'twitterAuth':{
-        'clientID': "R7YhCmXfjsFCRs628tmf5JUAG",
-        'clientSecret': "1xpd5DfBmNg5iQ7e84v7B8fTgC01Spth7XkarvwbiKdV5NwytH",
+        'clientID': "70nXNDMUEkMNKa2Pbtn2mJn7G",
+        'clientSecret': "9PXBjiEe3z7vs8NEqGZF7c8a81mMuq2xddnoMmBt4LloO60h9T",
         'callbackURL': "http://localhost:3000/auth/twitter/callback",
         proxy: true
     },
@@ -25,3 +25,6 @@ module.exports = {
         'callbackURL': "http://localhost:3000/auth/linkedin/callback",
     },
 }
+
+
+//passkey for server.pass,key:

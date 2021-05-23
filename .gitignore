@@ -4,3 +4,6 @@
 /build
 
 
+/server.crt
+/server.key
+/server.pass.key
