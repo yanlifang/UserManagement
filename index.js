@@ -12,7 +12,7 @@ require('./passport/google.passport');
 require('./passport/twitter.passport');
 require('./passport/linkedin.passport');
 
-const options = {
+/*const options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
@@ -20,10 +20,11 @@ const options = {
 var https = require('https');
 
 var server = https.createServer(options, app);
-const port = process.env.PORT || 3000;
+
 server.listen(port, function(){
   console.log("Server running at https://localhost:" + port);
-});
+});*/
+
 
 app.set('view engine', 'ejs');
 
@@ -34,7 +35,7 @@ app.use(session({
 }));
 
 var passport = require('passport');
- 
+const port = process.env.PORT || 3000;
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -42,7 +43,7 @@ app.get('/', function(req, res) {
   res.render('pages/auth');
 });
 
-//app.listen(port , () => console.log('App listening on port ' + port));
+app.listen(port , () => console.log('App listening on port ' + port));
  
 
 app.get('/profile', (req, res) => {
