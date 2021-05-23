@@ -1,13 +1,30 @@
-//reference for deploy https://us-east-2.console.aws.amazon.com/codesuite/codedeploy/applications?region=us-east-2
+//reference for deploy https://www.youtube.com/watch?v=b0g-FJ5Zbb8
+//reference for deploy and configure https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.html#cnames-and-https-getting-certificates
+//reference for https server https://nodejs.org/en/knowledge/HTTP/servers/how-to-create-a-HTTPS-server/
 const express = require('express');
-const app = express();
+const fs = require('fs');
+var http = require('http');
 const session = require('express-session');
 const config = require('./config');
-
+const app = express();
 require('./passport/fb.passport.js');
 require('./passport/google.passport');
 require('./passport/twitter.passport');
 require('./passport/linkedin.passport');
+
+/*const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+
+var https = require('https');
+
+var server = https.createServer(options, app);
+
+server.listen(port, function(){
+  console.log("Server running at https://localhost:" + port);
+});*/
+
 
 app.set('view engine', 'ejs');
 
@@ -18,7 +35,7 @@ app.use(session({
 }));
 
 var passport = require('passport');
- 
+const port = process.env.PORT || 3000;
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -26,8 +43,6 @@ app.get('/', function(req, res) {
   res.render('pages/auth');
 });
 
-
-const port = process.env.PORT || 3000;
 app.listen(port , () => console.log('App listening on port ' + port));
  
 
@@ -39,6 +54,9 @@ app.get('/profile', (req, res) => {
 app.get('/fail', (req, res) =>{
   res.send("Incorrect email or password!");
 });
+
+app.enable("trust proxy");
+
 
 //google
 app.get('/google', 

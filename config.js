@@ -9,12 +9,12 @@ module.exports = {
     'googleAuth':{
        'clientID': "24985356847-tn2n4bt492rhusq7qj849rcq7r6jj9gp.apps.googleusercontent.com",
         'clientSecret': "MLYO_Ma0T0ofPy5iTRDsPbf-",
-        'callbackURL': "http://localhost:3000/google/callback"
+        'callbackURL': "http://localhost:3000/google/callback",
     },
 
     'twitterAuth':{
-        'clientID': "9tHPgjsG6TvJRLfaK33SxOM2u",
-        'clientSecret': "oGRWsyZMjy0ikSUvrSqfWs4EH3S0gXNgINfspQaB0DqufZvqDP",
+        'clientID': "R7YhCmXfjsFCRs628tmf5JUAG",
+        'clientSecret': "1xpd5DfBmNg5iQ7e84v7B8fTgC01Spth7XkarvwbiKdV5NwytH",
         'callbackURL': "http://localhost:3000/auth/twitter/callback",
         proxy: true
     },
