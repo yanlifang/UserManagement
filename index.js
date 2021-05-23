@@ -3,6 +3,7 @@
 //reference for https server https://nodejs.org/en/knowledge/HTTP/servers/how-to-create-a-HTTPS-server/
 const express = require('express');
 const fs = require('fs');
+var http = require('http');
 const session = require('express-session');
 const config = require('./config');
 const app = express();
@@ -17,6 +18,7 @@ const options = {
 };
 
 var https = require('https');
+
 var server = https.createServer(options, app);
 const port = process.env.PORT || 3000;
 server.listen(port, function(){
@@ -39,8 +41,6 @@ app.use(passport.session());
 app.get('/', function(req, res) {
   res.render('pages/auth');
 });
-
-
 
 //app.listen(port , () => console.log('App listening on port ' + port));
  
