@@ -24,7 +24,4 @@ There is option to logout social media account.
 This application has been deployed to aws Elastic Beanstalk services. 
 http://httpuser-env.eba-uqchs28j.us-east-2.elasticbeanstalk.com/
 
-Deploy to Heroku: https://git.heroku.com/test-usermanagement.git
-
-//dev--pt7rexv.us.auth0.com
-//client id: oAlnHUG9vHdFRPB29Dywu377dndJjb26
+Deploy to Heroku: https://user-manage-ly.herokuapp.com/
