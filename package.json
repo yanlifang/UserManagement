@@ -16,9 +16,7 @@
   "bugs": {
     "url": "https://github.com/yanlifang/UserManagement/issues"
   },
-  "engines": {
-    "node": "12.x"
-  },
+  
   "homepage": "https://github.com/yanlifang/UserManagement#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
