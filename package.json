@@ -17,7 +17,7 @@
     "url": "https://github.com/yanlifang/UserManagement/issues"
   },
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "homepage": "https://github.com/yanlifang/UserManagement#readme",
   "dependencies": {
