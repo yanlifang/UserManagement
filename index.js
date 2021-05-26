@@ -57,6 +57,7 @@ app.get('/fail', (req, res) =>{
 app.enable("trust proxy");
 
 
+
 //google
 app.get('/google', 
   //passport.authenticate('google', { scope : ['profile', 'email'] })
@@ -122,7 +123,8 @@ app.get('/googlelogout', (req, res)=>{
 app.get('/fblogout', (req, res)=>{
   req.logout();
   req.session.destroy();
-  res.redirect('https://facebook.com/logout');
+  res.redirect('https://naughty-hoover-9fe66f.netlify.app');
+  //res.redirect('https://facebook.com/logout');
 });
 
 app.get('/linkedinlogout', (req, res)=>{

@@ -16,7 +16,6 @@ module.exports = {
         'clientID': "70nXNDMUEkMNKa2Pbtn2mJn7G",
         'clientSecret': "9PXBjiEe3z7vs8NEqGZF7c8a81mMuq2xddnoMmBt4LloO60h9T",
         'callbackURL': "https://user-manage-ly.herokuapp.com/auth/twitter/callback",
-        proxy: true
     },
 
     'linkedinAuth':{

@@ -16,8 +16,7 @@ passport.use(
     {
         consumerKey: config.twitterAuth.clientID,
         consumerSecret: config.twitterAuth.clientSecret,
-        callbackURL: config.twitterAuth.callbackURL,
-        proxy: true
+        callbackURL: config.twitterAuth.callbackURL
     }, function(accessToken, refreshToken, profile, done){
         return done(null, profile);
     }
