@@ -16,11 +16,8 @@ require('./passport/linkedin.passport');
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
-
 var https = require('https');
-
 var server = https.createServer(options, app);
-
 server.listen(port, function(){
   console.log("Server running at https://localhost:" + port);
 });*/
@@ -50,13 +47,11 @@ app.get('/profile', (req, res) => {
   res.send(`Welcome ${req.user.displayName}!`);
 });
 
-app.get('/fail', (req, res) =>{
-  res.send("Incorrect email or password!");
-});
-
 app.enable("trust proxy");
 
-
+app.get('/fail', (req, res) =>{
+  res.send('Fail to login');
+})
 
 //google
 app.get('/google', 
@@ -123,8 +118,7 @@ app.get('/googlelogout', (req, res)=>{
 app.get('/fblogout', (req, res)=>{
   req.logout();
   req.session.destroy();
-  res.redirect('https://naughty-hoover-9fe66f.netlify.app');
-  //res.redirect('https://facebook.com/logout');
+  res.redirect('https://facebook.com/logout');
 });
 
 app.get('/linkedinlogout', (req, res)=>{
