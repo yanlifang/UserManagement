@@ -59,8 +59,9 @@ app.enable("trust proxy");
 
 //google
 app.get('/google', 
-  passport.authenticate('google', { scope : ['profile', 'email'] })
-);
+  //passport.authenticate('google', { scope : ['profile', 'email'] })
+  passport.authenticate('google', {scope: ['profile', 'email', 'https://www.googleapis.com/auth/plus.login']}
+));
  
 app.get('/google/callback', 
   passport.authenticate('google', { failureRedirect: '/fail', }),
@@ -72,11 +73,11 @@ app.get('/google/callback',
 
 
 //facebook 
-app.get('/auth/facebook', 
+app.get('/facebook', 
   passport.authenticate('facebook', { scope : ['profile', 'email'] })
 );
  
-app.get('/auth/facebook/callback', 
+app.get('/facebook/callback', 
   passport.authenticate('facebook', { failureRedirect: '/fail' }),
   function(req, res) {
     // Successful authentication, redirect success.
