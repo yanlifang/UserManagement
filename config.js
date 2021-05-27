@@ -13,8 +13,8 @@ module.exports = {
     },
 
     'twitterAuth':{
-        'clientID': "70nXNDMUEkMNKa2Pbtn2mJn7G",
-        'clientSecret': "9PXBjiEe3z7vs8NEqGZF7c8a81mMuq2xddnoMmBt4LloO60h9T",
+        'clientID': "5subxHpeePlprGVnAVtQtutOf",
+        'clientSecret': "a6mcjTRvYMHMuMpoYHDVpmfhbr7K8RfDOvQAsfDk17Ta1OCwS4",
         'callbackURL': "https://user-manage-ly.herokuapp.com/auth/twitter/callback",
     },
 
