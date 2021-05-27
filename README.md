@@ -4,9 +4,8 @@ First, run the development server:
 ## Installation
 npm install 
 
-## NodeJS HTTPS server 
-https [to create nodejs server] 
-
+## Build 
+npm start 
 
 ## Usage
 Login through social media.
@@ -17,7 +16,6 @@ There is option to logout social media account.
 
 ## Auth0 Documentation 
 https://auth0.com/user-management
-
 
 ## Deploy to Heroku Documentation 
 https://devcenter.heroku.com/articles/deploying-nodejs
