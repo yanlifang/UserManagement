@@ -62,7 +62,7 @@ app.get('/google',
 app.get('/google/callback', 
   passport.authenticate('google', { failureRedirect: '/fail', }),
     function(req, res) {
-      res.cookie('name', req.user.name)
+      res.cookie('name', req.user.name, { domain: 'aughty-hoover-9fe66f.netlify.app' })
       res.redirect('https://naughty-hoover-9fe66f.netlify.app');
     }
 );
@@ -78,7 +78,7 @@ app.get('/facebook/callback',
   function(req, res) {
     // Successful authentication, redirect success.
     // need logic to create cookie here based off data returned from facebook authentication
-    // res.cookie('name', something here)
+    res.cookie('name', `${req.user.first_name} ${req.user.last_name}`, { domain: 'aughty-hoover-9fe66f.netlify.app' });
     res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
 
@@ -91,7 +91,7 @@ app.get('/auth/twitter',
 app.get('/auth/twitter/callback', 
   passport.authenticate('twitter', { failureRedirect: '/fail' }),
   function(req, res) {
-    res.cookie('name', req.user.displayName)
+    res.cookie('name', req.user.displayName, { domain: 'aughty-hoover-9fe66f.netlify.app' })
     // Successful authentication, redirect success.
     res.redirect('https://naughty-hoover-9fe66f.netlify.app');
 });
@@ -103,8 +103,7 @@ app.get('/auth/linkedin',
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { failureRedirect: '/fail' }),
   function(req, res) {
-    // need logic to create cookie here based off data returned from linked in authentication
-    // res.cookie('name', something here)
+    res.cookie('name', `${req.user.firstNAme} ${req.user.lastName}`, { domain: 'aughty-hoover-9fe66f.netlify.app' });
     res.redirect('https://naughty-hoover-9fe66f.netlify.app')
   }
 );
