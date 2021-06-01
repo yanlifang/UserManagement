@@ -14,8 +14,8 @@ User can login either through google, twitter, facebook or linkedin
 After you login, users can be redirected to our project homepage.
 There is option to logout social media account. 
 
-## Auth0 Documentation 
-https://auth0.com/user-management
+## Passport authenticate NodeJS
+http://www.passportjs.org/packages/passport-oauth2/
 
 ## Deploy to Heroku Documentation 
 https://devcenter.heroku.com/articles/deploying-nodejs
